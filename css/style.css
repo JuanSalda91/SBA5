@@ -34,7 +34,8 @@ header h1 {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 400px;
-    height: 400px;
+    min-height: 400px;
+    height: auto;
 }
 
 .form-group {
@@ -61,7 +62,12 @@ header h1 {
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
-    height: 200px;
+    min-height: 200px;
+}
+
+#posts-list {
+    height: calc(100% - 50px);
+    overflow-y: auto;
 }
 
 button[type="submit"] {
@@ -75,4 +81,12 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color:  rgb(48, 166, 64);
+}
+
+.footer{
+    border-top: solid black 1px;
+    width: 100%;
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
