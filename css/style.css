@@ -34,6 +34,7 @@ header h1 {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 400px;
+    min-height: 400px;
     height: auto;
 }
 
@@ -64,9 +65,39 @@ header h1 {
     min-height: 200px;
 }
 
+#li-container {
+      margin-top: auto;
+    margin-bottom: auto;
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    min-height: 400px;
+    height: auto;
+}
+
 #posts-list {
-    max-height: 50px;
+    max-height: 100px;
     overflow-y: auto;
+}
+.post-item {
+    border: solid #ddd 1px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.h4-title {
+    text-align: center;
+    border-bottom: solid black 1px;
+}
+
+.p-content {
+    background-color:lemonchiffon;
+    border-radius: 3px;
+    border: none;
+    margin-top: 2px;
 }
 
 button[type="submit"] {
