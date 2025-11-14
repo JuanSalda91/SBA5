@@ -9,9 +9,34 @@
 </head>
 <body>
 
-    
+    <header>
+        <h1>Welcome to Posting</h1>
+    </header>
 
+    <div class="main-container">
+        <form id="blog-post-form">
+            <div class="form-group">
+                <label for="postTitle">Post Title:</label>
+                <input type="text" name="postTitle" id="postTitle" placeholder="Enter your title" required>
+                <span class="error-message" id="titleError"></span>
+            </div>
+            <div class="form-group">
+                <label for="post">Your Post:</label>
+                <textarea name="post" id="post" rows="5" cols="30" placeholder="Write your content"></textarea>
+                <span class="error-message" id="postError"></span>
+            </div>
+            <button type="submit" id="submit">Post</button>
+        </form>
 
-    
+        <ul id="posts-list"></ul>
+
+    </div>
+
+    <div class="footer">
+        <footer>
+            <p>&copy; <b>SalDev</b> | 2025</p>
+        </footer>
+    </div>
+
 </body>
 </html>
