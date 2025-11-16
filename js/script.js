@@ -8,6 +8,40 @@ const postsList = document.getElementById('posts-list');
 const titleError = document.getElementById('titleError');
 const postError = document.getElementById('postError');
 
+// ----- localstorage helpers ----- //
+function savePostsToLocalStorage() {
+    const posts = [];
+
+    document.querySelectorAll('#posts-list .post-item'). forEach(li => {
+        const titleEl = li.querySelector('.h4-title');
+        const contentEl = li.querySelector('.p-content');
+
+        posts.push({
+            title: titleEl ? titleEl.textContent : '',
+            content: contentEl ? contentEl.textContent : ''
+        });
+    });
+
+    localStorage.setItem('blogPosts', JSON.stringify(posts));
+}
+
+// ----- Load posts from localstorage ----- //
+function loadPostFromLocalStorage() {
+    const stored = localStorage.getItem('blogPosts');
+    if (!stored) return;
+
+    try {
+        const posts = JSON.parse(stored);
+        posts.forEach(post => {
+            postTitleInput.value = post.title;
+            postArea.value = post.content;
+            handleFormSubmit({ preventDefault() {} });
+        });
+    } catch (e) {
+        console.error('Error loading posts from localstorage', e);
+    }
+};
+
 // ----- Function to add posts to the ul ----- //
 function handleFormSubmit(event) {
     event.preventDefault();
@@ -84,7 +118,7 @@ function handleFormSubmit(event) {
             postTitleElement.textContent = titleInput.value;
             postContentElement.textContent = contentTextarea.value;
 
-            // - show original text elements - //
+            // - show original text elements when editing - //
             postTitleElement.style.display = 'block';
             postContentElement.style.display = 'block';
 
@@ -94,6 +128,9 @@ function handleFormSubmit(event) {
 
             // - change the button back to edit - //
             editBtn.innerText = 'Edit';
+
+            // -- save updated posts from localstorage -- //
+            savePostsToLocalStorage();
         }
 
     });
@@ -107,6 +144,8 @@ function handleFormSubmit(event) {
         deleteBtn.addEventListener('click', function() {
             // - remove post from the list - //
             listItem.remove();
+        // -- sav updated posts to localstorage -- //
+        savePostsToLocalStorage();
     });
 
     // --- append title and content to the list --- //
@@ -118,9 +157,15 @@ function handleFormSubmit(event) {
     // --- append the li to the ul --- //
     postsList.appendChild(listItem);
 
+    // --- save posts after adding a new one --- //
+    savePostsToLocalStorage();
+
     // --- reset the form field after posting --- //
     blogPostForm.reset();
 };
 
 // ----- Event listener ----- //
 blogPostForm.addEventListener('submit', handleFormSubmit);
+
+// ----- Rebuold post from local storage on page load ----- //
+loadPostFromLocalStorage();
