@@ -12,6 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 16px; /* space from screen edges on small devices */
 }
 
 header {
@@ -33,7 +34,8 @@ header h1 {
     padding: 20px 30px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    width: 100%;        /* responsive width */
+    max-width: 400px;   /* keep the old card size as a max */
     min-height: 400px;
     height: auto;
 }
@@ -49,7 +51,7 @@ header h1 {
 }
 
 .form-group input[type="text"] {
-    width: calc(100% - 22px);
+    width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -57,7 +59,7 @@ header h1 {
 }
 
 .form-group textarea {
-    width: calc(100% - 22px);
+    width: 100%;
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
     resize: vertical;
@@ -68,13 +70,14 @@ header h1 {
 }
 
 #li-container {
-      margin-top: auto;
+    margin-top: auto;
     margin-bottom: auto;
     background-color: #fff;
     padding: 20px 30px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    width: 100%;        /* responsive width */
+    max-width: 400px;   /* same card max width */
     min-height: 400px;
     height: auto;
 }
@@ -83,6 +86,7 @@ header h1 {
     height: 300px;
     overflow-y: auto;
 }
+
 .post-item {
     border: solid #ddd 1px;
     border-radius: 4px;
@@ -97,7 +101,7 @@ header h1 {
 }
 
 .p-content {
-    background-color:lemonchiffon;
+    background-color: lemonchiffon;
     border-radius: 3px;
     border: none;
     margin-top: 2px;
@@ -124,7 +128,7 @@ header h1 {
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
-    min-height: 200px;    
+    min-height: 200px;
 }
 
 .edit-btn {
@@ -163,13 +167,56 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color:  rgb(48, 166, 64);
+    background-color: rgb(48, 166, 64);
 }
 
-.footer{
+.footer {
     border-top: solid black 1px;
     width: 100%;
     text-align: center;
     padding-top: 16px;
     padding-bottom: 16px;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  display: block;      /* put the error on its own line */
+  min-height: 1em;     /* reserves space so layout doesn’t jump */
+}
+
+
+/* --- Responsive tweaks for small screens --- */
+@media (max-width: 480px) {
+    header {
+        height: auto;
+        padding: 10px;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    .main-container,
+    #li-container {
+        padding: 16px;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    button[type="submit"],
+    .edit-btn,
+    .delete-btn {
+        width: 100%;      /* full-width buttons on phones */
+        margin-top: 8px;
+        float: none;      /* stack nicely */
+    }
+
+    .p-content {
+        font-size: 0.9rem;
+    }
 }
