@@ -12,7 +12,7 @@ const postError = document.getElementById('postError');
 function savePostsToLocalStorage() {
     const posts = [];
 
-    document.querySelectorAll('#posts-list .post-item'). forEach(li => {
+    document.querySelectorAll('#posts-list .post-item').forEach(li => {
         const titleEl = li.querySelector('.h4-title');
         const contentEl = li.querySelector('.p-content');
 
@@ -99,7 +99,7 @@ function handleFormSubmit(event) {
             contentTextarea.value = postContentElement.textContent;
             contentTextarea.classList.add('edit-content-textarea');
 
-            // - hide original text elements - /
+            // - hide original text elements - //
             postTitleElement.style.display = 'none';
             postContentElement.style.display = 'none';
 
@@ -144,7 +144,7 @@ function handleFormSubmit(event) {
         deleteBtn.addEventListener('click', function() {
             // - remove post from the list - //
             listItem.remove();
-        // -- sav updated posts to localstorage -- //
+        // -- save updated posts to localstorage -- //
         savePostsToLocalStorage();
     });
 
