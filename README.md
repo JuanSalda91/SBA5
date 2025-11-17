@@ -44,6 +44,17 @@ Your Interactive Personal Blog Platform must include the following features:
 
 2. A README.md file. This file should include:
 - A brief description of your project.
+    This project is based on a Blog Platform, where the users can create posts and after posting their content, they can delete, edit, save the changes. Also the content posted in the page will be save in the local storage, so the posts will still being displayed after refreshing the page.
+
 - Instructions on how to run the application (if anything beyond opening index.html in a browser is needed).
+    - Write Post Title
+    - Write content
+    - Click on the "Post" button (Content will be siplayed in a different container)
+    - Edit and save content
+    - Delete content
+    - Refresh page to check local storage memory.
+
 - A reflection on your development process, challenges faced, and how you overcame them.
+    Definitely "Data Persistance with localstorage" was the step that challenged me the most, taking advantage of the resources and documentation was the best way to overcome on it. Overall, on the entire project, some bugs, and typo errors where some of the common issues faced, so to overcomer these issues, reagding the code with patience was helpful to fix them.
+
 - Any known issues or features not implemented.
